@@ -1,7 +1,6 @@
 pillow
 Flask
 numpy
-pandas
 gunicorn
 gevent
 mxnet
