@@ -27,9 +27,7 @@ socketio = SocketIO(app, async_mode=async_mode)
 thread = None
 thread_lock = Lock()
 
-# Load the model
-net = gcv.model_zoo.get_model('yolo3_mobilenet1.0_voc', pretrained=True)
-net.reset_class(classes=['person'], reuse_weights=['person'])
+
 
 mydict={}
 for i,name in enumerate(net.classes):
@@ -68,6 +66,9 @@ def disconnect_request():
 
 @socketio.event
 def image(data_image):
+    # Load the model
+    net = gcv.model_zoo.get_model('yolo3_mobilenet1.0_voc', pretrained=True)
+    net.reset_class(classes=['person'], reuse_weights=['person'])
     session['receive_count'] = session.get('receive_count', 0) + 1
     sbuf = StringIO()
     sbuf.write(data_image)
