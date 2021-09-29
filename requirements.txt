@@ -2,7 +2,6 @@ pillow
 Flask
 numpy
 pandas
-tensorflow-cpu
 gunicorn
 gevent
 mxnet
