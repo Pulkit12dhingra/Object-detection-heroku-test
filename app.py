@@ -29,10 +29,6 @@ thread_lock = Lock()
 
 
 
-mydict={}
-for i,name in enumerate(net.classes):
-    mydict[i]=name
-
 
 def background_thread():
     """Example of how to send server generated events to clients."""
@@ -69,6 +65,9 @@ def image(data_image):
     # Load the model
     net = gcv.model_zoo.get_model('yolo3_mobilenet1.0_voc', pretrained=True)
     net.reset_class(classes=['person'], reuse_weights=['person'])
+    mydict={}
+    for i,name in enumerate(net.classes):
+        mydict[i]=name
     session['receive_count'] = session.get('receive_count', 0) + 1
     sbuf = StringIO()
     sbuf.write(data_image)
