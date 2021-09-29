@@ -7,4 +7,3 @@ gevent
 mxnet
 gluoncv
 flask-socketio
-engineio
