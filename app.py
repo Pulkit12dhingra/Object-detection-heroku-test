@@ -28,8 +28,8 @@ thread = None
 thread_lock = Lock()
 
 # Load the model
-net = gcv.model_zoo.get_model('yolo3_mobilenet1.0_coco', classes=['person'], reuse_weights=['person'], pretrained=True)
-# net.reset_class(classes=['person'], reuse_weights=['person'])
+net = gcv.model_zoo.get_model('yolo3_mobilenet1.0_voc', pretrained=True)
+net.reset_class(classes=['person'], reuse_weights=['person'])
 
 mydict={}
 for i,name in enumerate(net.classes):
