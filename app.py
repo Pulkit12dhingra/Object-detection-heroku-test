@@ -73,7 +73,7 @@ def image(data_image):
     try:
         image =np.array(Image.open(BytesIO(base64.b64decode(data_image))))
         frame = mx.nd.array(cv2.cvtColor(image, cv2.COLOR_BGR2RGB)).astype('uint8')
-        rgb_nd, frame = gcv.data.transforms.presets.ssd.transform_test(frame, short=512, max_size=700)
+        rgb_nd, frame = gcv.data.transforms.presets.yolo.transform_test(frame, short=512, max_size=700)
         class_IDs, scores, bounding_boxes = net(rgb_nd)
         labels=class_IDs[0]
         labels = labels.asnumpy()
