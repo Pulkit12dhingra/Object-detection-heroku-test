@@ -28,7 +28,7 @@ thread = None
 thread_lock = Lock()
 
 # Load the model
-net = gcv.model_zoo.get_model('yolo3_mobilenet1.0_voc', pretrained=True)
+net = gcv.model_zoo.get_model('yolo3_mobilenet0.25_coco', pretrained=True)
 net.hybridize()
 mydict={}
 for i,name in enumerate(net.classes):
