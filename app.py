@@ -29,7 +29,8 @@ thread_lock = Lock()
 
 # Load the model
 net = gcv.model_zoo.get_model('yolo3_mobilenet0.25_coco', pretrained=True)
-net.hybridize()
+net.reset_class(classes=['bicycle', 'backpack','person'], reuse_weights=['bicycle', 'backpack','person'])
+
 mydict={}
 for i,name in enumerate(net.classes):
     mydict[i]=name
