@@ -12,7 +12,7 @@ import base64
 # requred imports 
 import gluoncv as gcv
 from gluoncv.utils import try_import_cv2
-cv2 = try_import_cv2()
+import cv2
 import mxnet as mx
 import numpy as np
 from engineio.payload import Payload
